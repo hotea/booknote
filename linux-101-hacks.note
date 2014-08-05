@@ -1,0 +1,352 @@
+cd
+--------------------------------------------------------------------------------
+
+CDPATH:cd command basedir
+	export CDPATH=.:~:/etc (can write in .bash_profile)
+
+alias ..="cd .."
+alias ..2="cd ../.."
+
+alias ..="cd .."
+alias ...="cd ../.."
+
+#alias cd..="cd .."
+#alias cd...="cd ../.."
+
+#alias cd1="cd .."
+#alias cd2="cd ../.."
+
+
+mkdir and cd
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+auto recorrect dirname
+shopt -s cdspell
+
+
+
+date
+--------------------------------------------------------------------------------
+date mmddhhmiyyyy.ss   #change date
+	mm:month
+	dd:day
+	hh:hour
+	mi:minute
+	yyyy:year
+	ss:second
+date +%Y%m%d -s "20140824"
+date -s "09/01/2015 23:41:42"
+date -s "13 JAN 2014 20:42:42"
+date set="10 AUG 2042 18:19:20"
+
+date +%T -s "08:12:32"
+date +%T%p -s "10:12:11PM"
+
+hwclock -systohc #Set the Hardware Clock to the current System Time
+hwclock		 #look current hw date and time
+/etc/default/rcS #check weather "UTC=yes"
+/etc/sysconfig/clock	#in redhat
+
+$ date --date="now"
+Thu Jan 1 08:20:05 PST 2009
+$ date --date="today"
+Thu Jan 1 08:20:12 PST 2009
+$ date --date='1970-01-01 00:00:01 UTC +5 hours' +%s
+18001
+$ date '+Current Date: %m/%d/%y%nCurrent Time:%H:%M:%S'
+Current Date: 01/01/09
+Current Time:08:21:41
+$ date +"%d-%m-%Y"
+01-01-2009
+$ date +"%d/%m/%Y"
+01/01/2009
+$ date +"%A,%B %d %Y"
+Thursday,January 01 2009
+
+%D 日期(月/日/年)
+%d 一个月中的第几天 (01..31)
+%m 月份 (01..12)
+%y 年份的后两位 (00..99)
+%a 当前语言下星期的缩写 (Sun..Sat)
+%A 当前语言下星期的全拼 (Sunday..Saturday)
+%b 当前语言下月份的缩写 (Jan..Dec)
+%B 当前语言下的月份的全称 (January..December)
+%H 24 小时制小时 (00..23)
+%I 12 小时制小时 (01..12)
+%Y 年份(1970...)
+
+#future or old time
+
+
+
+
+ssh
+--------------------------------------------------------------------------------
+$ ssh -l jsmith remotehost.example.com
+$ ssh-keygen -F publickey.pub
+临时回到本地主机,输入退出符号:“~”与“Control-Z”组合。
+输入 ssh 退出字符~并输入 s。这样会显示出很多有关当前 ssh 连
+接的有用信息
+
+
+
+
+important command
+--------------------------------------------------------------------------------
+grep -c some_text file	# lines count include searched text
+-l	#only display filename
+
+find path -name "..."
+	  -type f
+	  -size +100M
+	  -mtime +60  # over 60 days not modified
+	  -exec ls -l {} \;
+
+mc  #midnight commander, a powerful file manager
+
+join # join lines of two files on a common field
+
+$ tr a-z A-Z <input_file  #change case
+
+find ~ -name '*.log' -print0 | xargs -0 rm –f
+
+cat url-list.txt | xargs wget –c  # download from all url
+
+sort -t SEP -k 2 # -t specify sepritor, -k specify item
+	-u	# delete repeated
+uniq -c # count repeated times
+     -d # display repeated
+stat    # file's attribute
+	-f # filesystem status
+diff -w # ignore space
+	
+
+
+
+PROMPT
+--------------------------------------------------------------------------------
+PS3 #the prompt of select, default #?
+PS4 #set -x,  $0 -- script name, $LINENO -- line number
+PROMPT_COMMAND	# execute it's content before PS1
+export PROMPT_COMMAND="echo -n [$(date+%k:%m:%S)]" #display in same line
+export PS1="\e[0;34m\u@\h \w> \e[m " 
+ \e[  ——表示颜色的提示的起始位置 
+ x;ym ——表示颜色的代码。颜色的代码在下面有说明
+ \e[m ——表示代颜色的提示的结束位置
+颜色代码:
+黑 0:30
+蓝 0;34
+绿 0;32
+青 0;36
+红 0;31
+紫 0;35
+棕 0;33
+[注: 用 1 代替 0,可以使之变成黑体]
+\e[...m #background color
+
+tput 设置颜色的方法:
+tput setab [1-7] - 通过ANSI转义设置背景色
+tput setb [1-7] - 设置背景色
+tput setaf [1-7] - 通过ANSI转义符设置前景色
+tput setf [1-7] - 设置前景颜色
+tput 设置文本的方法:
+tput bold - 设置粗体
+tput dim - 打开半光亮模式
+tput smul - 开始下划线
+tput rmul - 退出下划线模式
+tput rev - 打开反转模式
+tput smso - 进入突出显示模式
+tput rmso - 退出突出显示模式
+tput sgr0 - 关闭所有属性
+tput 的颜色码:
+0 – 黑
+1 – 红
+2 – 绿
+3 – 黄
+4 – 蓝
+5 – 洋红
+6 – 青
+7 - 白
+
+
+tar and zip
+--------------------------------------------------------------------------------
+unzip -l  #list but not uncompress
+zip -n #0-9, 0 only archive not zip
+	-P #password
+	-e #interective
+	-t #checksum
+tar 	t #list file
+	x # extract
+	-C #indicate directory
+history
+HISTSIZE 控制历史命令的总数
+HISTFILE 改变历史文件名
+HISTCONTROL 来消除命令历史中的连续重复条目,在整个历史中去除重复命令,强制 history 忽略某条特定命令
+!!:$ 将前一个命令的参数做为当前命令的参数
+!^   把上一个命令的第一个参数传递给当前命令
+用 HISTSIZE 禁用 history, export HISTSIZE=0
+ HISTIGNORE 让 history 在存储时忽略某些指令
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+mke2fs	# format disk
+	-m 0 # reserved-blocks-percentage
+	-b  block size
+	-j ext3 journal
+mkfs.ext*
+
+tune2fs #adjust tunable filesystem parameters
+	-L #volume name
+
+adduser -C "description" -e expire-date
+/usr/sbin/useradd -D #look default value
+useradd -G group newuser
+usermod -g group user
+
+
+ssh-keygen #generate public/private key
+ssh-copy-id -i key_file remote-host	#copy public key to remote host
+ssh remote-host		#no more need key
+
+ssh-agent $SHELL
+ssh-add -L
+ssh-add  #用 ssh-add 将密钥加载到 ssh-agent 上,那么 ssh-copy-id 会从 ssh-agent 那里得到密钥,进而复制到远程主机上
+ssh-copy-id -i remote-host
+ssh-copy-id 以 ~/.ssh/identity.pub 为默认的公钥文件,没有密钥要加到 ssh-agent 上), ssh-copy-id 仍将会复制信息 “The agent has no identities” 到远程主机,不检查是否有重复项
+
+
+crontab -e	# add a task
+{minute} {hour} {day-of-month} {month} {day-of-week} {full-path-to-shell-script}
+minute: 区间为 0 – 59
+hour: 区间为 0 – 23
+day-of-month: 区间为 0 – 31
+month: 区间为 1 – 12. 1 是 1 月. 12 是 12 月.
+Day-of-week: 区间为 0 – 7. 周日可以是 0 或 7.
+
+crontab –e : 修改 crontab 文件. 如果文件不存在会自动创建。
+crontab –l : 显示 crontab 文件。
+crontab -r : 删除 crontab 文件。
+
+Magic SysRq 是 Linux 内核中一个组合键(key combination),它允许用户可以忽略系统的状态而执行一些低级指令。它常被用来从系统冻结状态中恢复过来或者重启电脑而不会破坏文件系统。组合键由
+Alt+SysRq 再加上一个相应的键 组成。在大多数系统中 SysRq 键就是 Print Screen 键.
+首先,你需要像下面那样使 SysRq 键生效
+echo "1" > /proc/sys/kernel/sysrq
+SysRq 对应的组合键列表
+以下是对 Alt+SysRq+commandkey 有效的 Commandkeys.
+'k'- 杀死所有在当前虚拟控制台(virtual console)运行的进程 。
+'s'- 尝试同步所有挂载的文件系统。
+'b'- 不卸载分区也不做同步的情况下立即重启系统
+'e'- 向除了init 外的所有进程发送 SIGTERM 信号。
+'m'- 将当前的内存信息输出到控制台。
+'i'- 向除了init 外的所有进程发送 SIGKILL 信号。
+'r'- 把键盘从raw模式(一种被像X11 这样的程序调用的模式)转换为 XLATE模式。
+'s'– 使所有挂载的文件系统同步。
+'t'– 将当前任务的清单以及它们的信息输出到控制台。
+'u'– 以只读方式重新挂载所有已挂载的文件系统。
+'o'– 立刻关闭系统。
+'p'– 将当前的寄存器和标志信息输出到控制台。
+'0-9'- 设置控制台的日志级别,从而控制输出到控制台的内核信息。
+'f'– 将会调用 oom_kill 来杀死占用较多内存的进程。
+'h'– 用来显示帮助说明。但是除了上述列出的键外其他键也可以打印出帮助说明。
+我们也可以将该键 写入 /proc/sysrq-trigger 文件中。例如, 要重启系统你可以运行下面的
+命令:
+echo "b" > /proc/sysrq-trigger
+
+如果要实现挂起状态中的 Linux 的安全重启,请按如下操作。这将可避免在下一次重启时进行
+文件系统检查和修复(fsck)。也就是,按住 Alt+SysRq,再按住如下加粗的字母。
+R  unRaw (从X11 获取键盘的控制权),
+E  tErminate (向所有进程发出SIGTERM信号,使他们可以正常结束),
+K  Kill (向所有进程发出SIGKILL信号,强制这些进程立刻结束),
+S  Sync (将数据同步到磁盘),
+U  Unmount (卸载所有只读的文件系统),
+B  reBoot (重启系统)
+
+
+
+
+
+--------------------------------------------------------------------------------
+/etc/bashrc 是通过~/.bashrc 执行
+当一个非交互式 shell 启动,它会寻找环境变量 ENV,并执行环境变量 ENV 里的文件名变量
+$RANDOM #随机数
+ set -xv 输出调试
+
+
+Vmstat 的 procs 段
+r 字段:可运行进程总数
+b 字段:阻塞的进程总数
+Memory段
+Swpd字段:使用的交换空间
+Free字段:可用的空闲RAM
+Buff字段:用于缓冲区的RAM
+Cache字段:用于文件系统cache的RAM
+Swap段
+Si字段:每秒从磁盘交换的内存数量
+So字段:每秒交换到磁盘的内存数量
+IO段
+Bi字段:从磁盘读取的块
+Bo字段:写入到磁盘的块
+System段
+In字段:每秒的中断数
+Cs字段:每秒的上下文切换数
+CPU 段
+Us字段:运行用户代码花费的时间(非内核代码)
+Sy字段:运行内核代码花费的时间
+Id字段:空闲时间
+Wa字段:等待IO花费的时间
+
+
+
+在/etc/sysctl.conf 修该完内核参数以后,执行
+持。
+sysctl –p 提交改动。重启之后改变仍然保
+sysctl -w 临时改动
+
+
+
+补全忽略大小写
+bind "set completion-ignore-case on"
+
+
+一次动作为多次 SSH 连接指定密码
+$ vi ~/.ssh/config
+Host *
+ControlMaster auto
+ControlPath ~/.ssh/master-%r@%h:%p
+Host * ——所有的主机
+ControlPath ~/.ssh/master-%r@%h:%p ——建立控制文件的路径,确定这个文件不能被别人使用。
+%r - remote login name
+%h - host name ( remote )
+%p – port
+
+对于特定的一些主机有效,将如下几行加入到~/.ssh/config 文件中。
+Host 192.168.1.?
+Host *.com
+更改控制文件路径:
+ControlPath ~/.mysecretfiles/master-%r@%h:%p
+
+
+od 命令可以将文件按照八进制,十进制或者其他的格式显示出来。
+-b 与选项 -t oC 功能相同, 显示为八进制模式
+-c 与选项 -t c 功能相同, 显示为 ASCII 字符或者转义符
+
+
+
+gpg --gen-key		#创建gpg密钥对
+gpg --export user_name 	#导出公钥
+gpg --armor --export user_name > user-pub-asc.gpg
+gpg --import filename	#导入公钥
+gpg --recipient bob --encrypt filename  #用bob的公钥加密
+gpg --recipient bob --armor --encrypt file  #创建加密文件
+gpg --decrypt file	#读取加密的消息
+gpg --list-keys		#列出公钥
+gpg --list-secret-keys	#私钥
+
+
+
+
