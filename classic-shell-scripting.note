@@ -18,3 +18,16 @@
 
 "啊哈，这不是编译型程序，那么一定是shell脚本"
 
+构造管道时，应该试着让每个阶段的数据量变得更少
+
+stty -echo		#关闭自动打印输入字符
+set -x			#打开跟踪
+
+可以用LC_ALL来强制设置单一locale；而LANG则是用来设置locale的默认值，大多时候应避免为任何LC_xxx变量赋值
+POSIX等同C
+locale -a 列出系统认得哪些locale
+
+fgrep使用不同算法，可以匹配多个字符串
+grep -F 固定字符串.若模式不含正则元字符，默认使用-F
+-E = egrep, -F = fgrep
+
