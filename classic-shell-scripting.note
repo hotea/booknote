@@ -41,5 +41,22 @@ grep -F 固定字符串.若模式不含正则元字符，默认使用-F
 collating symbol:将多字符序列视为一个单位，[. .]
 equivalence class:等价字符集，[= =]
 方括号表达式中，将]放到第一个字符，-放到最后一个字符
+方括号里的范围应避免使用，改用字符集(locale原因)
 查看POSIX量词最大重复，getconf RE_DUP_MAX
+
+sed -e 多个命令
+    -f script-file
+    -n 只打印p指定的行
+sed 's/^/mkdir /' | sh -x  插入命令，以shell跟踪模式执行
+&在替代文本里表示“从此点开始替代成匹配表达式的文本”
+sed会记得遇到的最后一个regex，使用空的regex，同一个可再使用
+!s 否定
+"从最左边开始，扩展至最长"
+大部分简易程序都是处理输入数据的行，像grep,sed(99%)
+程序语言多半是处理字符串，如awk,Perl,Python
+
+expand,unexpand空格制表互换
+
+awk省略pattern则会对每一条记录执行action；省略action则等同于{ print },打印整条记录
+print的参数间用逗号隔开
 
