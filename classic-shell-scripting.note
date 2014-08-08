@@ -30,4 +30,16 @@ locale -a 列出系统认得哪些locale
 fgrep使用不同算法，可以匹配多个字符串
 grep -F 固定字符串.若模式不含正则元字符，默认使用-F
 -E = egrep, -F = fgrep
+-e pat-list
+-f pat-file
+-l 只列出文件名
+-q 静默
+-s 不显示错误，常与-q并用
+-v 显示不匹配
+
+
+collating symbol:将多字符序列视为一个单位，[. .]
+equivalence class:等价字符集，[= =]
+方括号表达式中，将]放到第一个字符，-放到最后一个字符
+查看POSIX量词最大重复，getconf RE_DUP_MAX
 
