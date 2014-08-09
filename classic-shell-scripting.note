@@ -59,4 +59,24 @@ expand,unexpand空格制表互换
 
 awk省略pattern则会对每一条记录执行action；省略action则等同于{ print },打印整条记录
 print的参数间用逗号隔开
+RS,RecordSeparator, RS=""指记录以空行隔开
+
+
+sort -b  #忽略开头空白
+     -c  #检查是否已排序
+     -d  #字典顺序
+     -g  #一般数值，以浮点类型，仅gnu
+     -f  #忽略大小写
+     -k  #指定排序字段
+     -m  #将已排序输入合并为排序后输出
+     -n  #整数类型
+     -o  #输出文件
+     -t  #指定字段分隔符
+     -u  #丢弃相同键值记录，保留第一条，丢弃记录其他部分可能是不同值
+     --stable #稳定排序
+
+当工作终止时，删除临时文件：
+trap "exit 1" HUP INT PIPE QUIT TERM
+trap "rm -f $TMPFILE " EXIT
+
 
