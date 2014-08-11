@@ -1,0 +1,429 @@
+M-` 或 F10		打开主菜单			tmm-menubar
+C-x C-f	   		打开文件			find-file
+C-x C-v			读取另一文件替代先前读入的	find-alternate-file
+C-x i			插入文件			insert-file
+C-x C-s			保存文件			save-buffer
+C-x C-w			写文件				write-file
+C-x C-c			退出Emacs			save-buffers-kill-emacs 
+C-h 或 F1		获取帮助 
+C-h k  			按键释义			describe-key
+C-h f			函数释义			describe-function
+C-h t			教程				help-with-tutorial
+C-h i			Info文档			info
+---    			显示隐藏主菜单			menu-bar-mode
+
+
+
+---			自动换行模式			auto-fill-mode
+C-n			下				next-line
+C-p			上				previous-line
+C-f			前				forward-char
+C-b			后				backward-char
+C-a			行首				move-beginning-of-line
+C-e			行尾				move-end-of-line
+M-f			前移一词			forward-word
+M-b			后移一词			backward-word
+M-a			后移一句			backward-sentence
+M-e			前移一句			forward-sentence
+M-{			后移一段			backward-paragraph
+M-}			前移一段			forward-paragraph
+C-x [			上一页				backward-page
+C-x ]			下一页				forward-page
+C-q 			引用				quoted-insert
+C-v 			下一屏				scroll-up
+M-v			上一屏				scroll-down
+M-<			缓冲区头			beginning-of- buffer
+M->			缓冲区尾			end-of-buffer
+M-g g,M-g M-g		转到行				goto-line LINE
+--- 	  		转到字				goto-char POSITION
+M-num			重复执行			digit-argument
+C-u			重复（默认4ⁿ次）		universal-argument
+C-l			重绘屏幕			recenter-top-bottom
+
+
+C-x u,C-_,C-/		撤销				undo
+C-d 			删除光标上字符			delete-char
+M-d			删除下个词			kill-word
+M-DEL			删除前个词			backward-kill-word
+C-k			删除一行			kill-line
+M-- C-k			删除行首到光标			---
+M-k 			删除光标后句子			kill-sentence
+C-x DEL			删除光标前句子			backward-kill-sentence
+C-y 			恢复				yank
+C-w			删除文本块			kill-region
+---			删除光标后段落			kill-paragraph
+---			删除光标前段落			backward-kill-paragraph
+
+
+
+C-@, C-SPC		设置标记			set-mark-command
+C-x C-x			互换插入点和标记		exchange-point-and-mark
+M-h 			标记段落			mark-paragraph
+C-x h			标记缓冲区			mark-whole-buffer
+C-x C-p			标记页面			mark-page
+--- 			临时标记模式			transient-mark-mode
+M-w			复制文本块			kill-ring-save
+M-y			恢复更早删除			yank-pop
+
+
+
+M-q			重排段落			fill-paragraph
+---			重排文本块			fill-region
+
+
+
+C-t			交换字符位置			transpose-chars
+M-t			交换单词位置			transpose-words
+C-x C-t			交换行位置			transpose-lines
+--- 			交换句子位置			transpose-sentences
+---			交换段落位置			transpose-paragraphs
+
+
+
+M-c			单词首字母大写			capitalize-word
+M-l			单词字母全部小写		downcase-word
+M-u			单词字母全部大写		upcase-word
+M-- M-c			前一单词首字母大写		negative-argument;capitalize-word
+M-- M-l			前一单词字母全部小写		negative-arg
+M-- M-u			前一单词字母全部大写		negative-arg
+
+
+--- 			改写模式			overwrite-mode
+C-g			命令中止			keyboard-quit
+---			撤销上次存盘后的更改		revert-buffer
+---			恢复自动保存的文件		recover-file
+---			设置变量			set-variable
+
+
+
+C-s			递增查找			isearch-forward
+C-r			反向递增查找			isearch-backward
+C-s C-w			光标处单词作查找字符串		---
+C-s C-y			光标到行尾文本作查找串		---
+C-s M-y			删除环中文本作查找串		---
+C-s RET			简单查找			---
+C-s RET C-w		单词查找			word-search-forward
+
+--- 			替换				replace-string
+M-%			查询-替换			query-replace
+C-x M M			重复复杂命令			repeat-complex-command
+C-M-c 			退出递归编辑			exit-recursive-edit
+C-]			中止递归编辑			abort-recursive-edit
+---			退出所有递归编辑		top-level
+---			进入递归编辑			recursive-edit
+
+C-M-s			递增查找正则表达式		isearch-forward-regexp
+C-M-r			反向递增查找正则		isearch-backward-regexp
+C-M-s RET		查找正则表达式			re-search-forward
+C-M-r RET		反向查找正则			re-search-backward
+C-M-% 			查询-替换正则表达式		query-replace-regexp
+---			无条件正则全局替换		replace-regexp
+
+---			拼写检查			ispell-buffer
+
+
+C-x b			进入缓冲区			switch-to-buffer
+C-x s			保存多个缓冲区			save-some-buffers
+C-x k			删除缓冲区			kill-buffer
+--- 			删除多个缓冲区			kill-some-buffer
+---			重命名缓冲区			rename-buffer
+C-x C-q			切换只读属性			toggle-read-only
+C-x 2			垂直分割窗口			split-window-vertically
+C-x 3			水平分割窗口			split-window-horizontally
+C-x <			左滚动				scroll-left
+C-x >			右滚动				scroll-right
+C-x o			移到下一窗口			other-window
+C-x 0			删除窗口			delete-window
+C-x 1			删除其他窗口			delete-other-window
+--- 			删除特定缓冲区上的窗口		delete-windows-on
+C-x ^			加高窗口			enlarge-window
+--- 			压低窗口			shrink-window
+C-x }			加宽窗口			enlarge-window-horizontally
+C-x {			变瘦窗口			shrink-window-horizontally
+C-x -			收缩到缓冲区大小		shrink-window-if-larger-than-buffer
+C-x +			窗口变为同样大小		balance-windows
+
+C-M-v			滚动其他窗口文本		scroll-other-window
+C-x 4 f			在其他窗口打开文件		find-file-other-window
+C-x 4 b			在其他窗口选择缓冲区		switch-to-buffer-other-window
+---   			比较窗口			compare-windows
+C-x C-b			列出缓冲区			list-buffers
+
+
+
+C-x r m			设置书签			bookmark-set
+C-x r b			跳至书签			bookmark-jump
+C-x r l			书签列表			bookmark-bmenu-list
+---   			重命名书签			bookmark-rename
+---			删除书签			bookmark-delete
+---			保存书签			bookmark-save
+---			插入书签关联的文件		bookmark-insert
+---			保存书签到文件			bookmark-write
+---			加载书签文件			bookmark-load
+
+
+
+C-z,C-x C-z		挂起emacs			suspend-frame
+
+
+C-x 4 f			在另一个窗口打开		find-file-other-window
+C-x 5 f			在另一个窗格打开		find-file-other-frame
+C-x 5 2			创建新窗格			make-frame-command
+C-x 5 b			在另一窗格打开缓冲区		switch-to-buffer-other-frame
+C-x 5 o			进入另一窗格			other-frame
+C-x 5 0			删除窗格			delete-frame
+C-x 5 r			只读打开窗格			find-file-read-only-other-frame
+---   			图标化窗格			iconify-or-deiconify-frame
+
+
+
+M-!			执行shell命令			shell-command
+M-|			在文本块上执行命令		shell-command-on-region
+---			shell模式			shell
+M-p			此前的上一个命令		comint-previous-input
+M-n			此后的下一个命令		comint-next-input
+C-c C-c			中断当前作业			comint-interrupt-subjob
+C-d 			EOF或删除字符			comint-delchar-or-maybe-eof
+C-c C-d			EOF				comint-send-eof
+C-c C-u			删除当前行			comint-kill-input
+C-c C-z			挂起作业			comint-stop-subjob
+C-c C-o			刪除上个命令的输出		comint-delete-output
+C-c C-r			显示上次输出的开始处		comint-show-output
+C-c C-e			显示最大输出			comint-show-maximum-output
+C-c C-p			后退到前一输出组		comint-previous-prompt
+C-c C-n			前进到下一输出组		comint-next-prompt
+--- 			重命名shell缓冲区		rename-uniquely
+---			隐藏输入字符			send-invisible
+
+
+
+C-x d			目录编辑			dired
+s   			切换名称/时间排序		dired-sort-toggle-or-edit
+v			查看文件内容			dired-view-file
+Z			压缩或解压			dired-do-compress
+C-x M-:,C-x M-ESC	重复执行命令			repeat-complex-command
+ESC DEL	    		去除所有标记			dired-unmark-all-files
+%m 	    		正则标记文件名			dired-mark-files-regexp
+%d			正则标记待删除文件		dired-flag-files-regexp
++			创建目录			dired-create-directory
+Q			查询替换			dired-do-query-replace-regexp
+C			复制文件			dired-do-copy
+d			加待删除标记			dired-flag-file-deletion
+D			立即删除			dired-do-delete
+e,f			编辑文件			dired-find-file
+g			从磁盘重新读入目录		revert-buffer
+G			改变文件组权限			dired-do-chgrp
+k			删除标记的行而非文件		dired-do-kill-lines
+m			标记文件			dired-mark
+n			到下一行			dired-next-line
+o			移动到另一窗口查看文件		dired-find-file-other-window
+C-o			在另一窗口查看文件		dired-display-file
+P			打印				dired-do-print
+R			重命名或移动文件		dired-do-rename
+u			去掉待操作标记			dired-unmark
+v			查看文件内容			dired-view-file
+x			删除D标记的文件			dired-do-flagged-delete
+~			给备份文件加上删除标记		dired-flag-backup-files
+*			给可执行文件加删除标记		dired-mark-executables
+#			给自动保存文件加删除标记	dired-flag-auto-save-files
+.			给带编号的备份文件标记		dired-clean-directory
+/			给目录标记			dired-mark-directories
+=			把这个文件与另一比较		dired-diff
+M-=			把此文件与其备份比较		dired-backup-diff
+!			对标记文件执行shell命令		dired-do-shell-command
+M-}			移动到下个标记文件		dired-next-marked-file
+M-{			移动到上个标记文件		dired-prev-marked-file
+>			移动到下一目录			dired-next-dirline
+<			移动到上一目录			dired-prev-dirline
+
+C-x C-d			简单目录清单			list-directory
+C-u C-x C-d		详细目录清单
+
+
+
+--- 			UNIX手册			man,manual-entry
+
+
+
+---			显示时间			display-time
+---			显示日历			calendar
+p d			年度第几天			calendar-print-day-of-year
+SPACE			卷动另一窗口			scroll-other-window
+q			退出日历			exit-calendar
+h			显示今天节假日			calendar-cursor-holidays
+x			突出显示节假日			calendar-mark-holidays
+u			去除节假日标记			calendar-unmark
+.			到今天				calendar-goto-today
+g d			到指定日期			calendar-goto-date
+o 			到指定月份			calendar-other-month
+a			列出节假日			list-calendar-holidays
+ESC =			计算某时间段的天数		calendar-count-days-region
+M   			三个月间月相			calendar-lunar-phases
+S			日出日落时间			calendar-sunrise-sunset
+
+m			突出日记			diary-mark-entries
+d			显示当前日记			diary-view-entries
+s			显示diary文件			diary-show-all-entries
+i d			插入日记			diary-insert-entry
+i w			插入周记			diary-insert-weekly-entry
+i m			插入月记			diary-insert-monthly-entry
+i y,i a			插入年记			diary-insert-yearly-entry
+i c			插入循环事件			diary-insert-cyclic-entry
+i b			插入日期段事件			diary-insert-block-entry
+
+
+
+ESC q			段落重排			fill-paragraph
+--- 			文本块重排			fill-individual-paragraphs
+---			设置制表位			edit-tab-stops
+C-i			制表符				indent-for-tab-command
+---			制表转空格			untabify
+---			空格转制表			tabify
+C-x h			选择整个缓冲区			mark-whole-buffer
+C-x .			设置前导字符串			set-fill-prefix
+--- 			文本缩进模式			indented-text-mode
+---			文本模式			text-mode
+C-M-\			缩进文本块			indent-region
+ESC m			移到逻辑开始			back-to-indentation
+C-M-o			阶梯差分行			split-line
+---			文本块居中			center-region
+M-o M-s			文本行居中			center-line
+M-o M-S			段落居中			center-paragraph
+C-q C-l			插入分页符			---
+
+C-x r k			剪切矩形			kill-rectangle
+C-x r y			粘贴矩形			yank-rectangle
+C-x r o			插入矩形			open-rectangle
+C-x r c			清除矩形中文本			clear-rectangle
+C-x r d			删除矩形			delete-rectangle
+
+
+
+
+---   			图形模式			edit-picture
+C-c C-c			退出图形模式			picture-mode-exit
+C-c .			默认绘制方向设为下		picture-movement-down
+C-c C-f			沿绘制方向前移			picture-motion
+C-c C-b			绘制方向后移			picture-motion-reverse
+C-o 			在光标下方插入新行		picture-open-line
+C-c C-w r		剪切矩形内容到寄存器r		picture-clear-rectangle-to-register
+C-c C-x r		从寄存区r粘贴矩形内容		picture-yank-rectangle-from-register
+
+
+
+
+--- 			大纲模式			outline-mode
+C-c C-t			隐藏正文			hide-body
+C-c C-a			显示正文			show-all
+C-c C-d			隐藏子标题			hide-subtree
+C-c C-s			显示子标题			show-subtree
+C-c C-c			隐藏给定标题下文本		hide-entry
+C-c C-e			显示给定标题下文本		show-entry
+--- 			大纲副模式			outline-minor-mode
+C-c C-l			只留标题			hide-leaves
+C-c C-k			显示标题的全部下级		show-branches
+C-c C-i			显示下级标题			show-children
+
+
+
+
+M-;			注释				indent-for-comment,comment-indent
+--- 			nroff模式			nroff-mode
+M-n			移动到下行文本			nroff-forward-text-line
+M-p			移动到上行文本			nroff-backward-text-line
+M-?			统计文本行			nroff-count-text-lines
+---			nroff配对模式			nroff-electric-mode
+C-j			换行并插入收尾标记		nroff-electric-newline
+
+---			据内容进入TEX或LATEX模式	tex-mode
+---			TEX模式				plain-tex-mode
+---			LATEX模式			latex-mode
+C-c {			插入成对花括号			tex-insert-braces
+C-c }			到匹配括号			up-list
+--- 			检查未配对括号			tex-validate-buffer
+C-c C-b			对缓冲区排版处理		tex-buffer
+C-c C-l			显示排版信息			tex-recenter-output-buffer
+C-c C-r			对文本块处理			tex-region
+C-c C-k			中断排版处理			tex-kill-job
+C-c C-p			转换并打印			tex-print
+C-c C-q			显示打印队列			tex-show-print-queue
+C-j 			插入两个硬回车并检查语法	tex-terminate-paragraph
+C-c C-e			LATEX命令配对			latex-close-block
+
+
+
+
+C-x (			开始宏定义			kmacro-start-macro
+C-x )			结束宏录制			kmacro-end-macro
+C-x e			执行宏				kmacro-end-and-call-macro,call-last-kbd-macro
+M-= 			统计区域文本行数		count-lines-region
+---			命名上一个宏			name-last-kbd-macro
+---			将宏插入文件			insert-kbd-macro
+---			读入宏定义文件			load-file
+---			将宏绑定到按键			local-set-key
+C-x q			在宏里插入查询			kbd-macro-query
+
+--- 			运行文件使之生效		eval-buffer
+C-x C-e			执行光标行lisp代码		eval-last-sexp
+
+
+
+C-h p			查找可用lisp程序包		finder-by-keyword
+
+
+
+C-M-\			对区域缩进			indent-region
+M-m			移到当前行第一个非空白字符	back-to-indentation
+M-^			把当前行合并到上一行		delete-indentation
+C-x ;			设置注释列			comment-set-column
+M-j, C-M-j		在下一行插入注释		comment-indent-new-line
+---  			注释代码块			comment-region
+---			删除注释文本			comment-kill
+
+M-a			移到语句开头			c-beginning-of-statement
+M-e			移到语句结尾			c-end-of-statement
+M-q			注释段落重排			c-fill-paragraph
+C-M-a			函数开头			c-beginning-of-defun
+C-M-e			函数末尾			c-end-of-defun
+C-M-h			选取函数文本块			c-mark-function
+C-c C-q			对函数缩进			c-indent-defun
+C-c C-u			移到预处理条件开始		c-up-conditional
+C-c C-p			上一个预处理器条件		c-backward-conditional
+C-c C-n			下一个预处理器条件		c-forward-conditional
+C-c . 			C代码风格			c-set-style
+C-c C-a			自动新行			c-toggle-auto-newline
+C-c C-d			饥饿删除			c-toggle-hungry-state
+C-c C-t			切换上面两个状态		c-toggle-auto-hungry-state
+C-c C-e							c-macro-expand
+
+--- 			访问标签表			visit-tags-table
+M-.			查找函数标签			find-tag
+C-x 4 .			新窗口打开查找的标签		find-tag-other-window
+M-,   			下一个标签			tags-loop-continue
+---			正则搜索标签文件		tags-search
+---			正则查询替换			tags-query-replace
+---			显示匹配的列表			tags-apropos
+---			显示所有标签			list-tags
+
+
+
+---			编辑emacs lisp代码		emacs-lisp-mode
+---			lisp模式  			lisp-mode
+---			编辑运行lisp			lisp-interaction-mode
+C-M-b			移动到上一个S-表达式		backward-sexp
+C-M-f			下一个S-语法表达式		forward-sexp
+C-M-t			交换光标前后S-的位置		transpose-sexps
+C-M-@			标记S-，光标在开头		mark-sexp
+C-M-k			删除光标后S-			kill-sexp
+ESC C-bksp		删除光标前S-			backward-kill-sexp
+
+C-M-n			移动到下一个列表		forward-list
+C-M-p			上一个				backward-list
+C-M-d			前移到下级括号层次		down-list
+---			前移退出当前括号层次		up-list
+C-M-u			后移退出当前括号层次		backward-up-list
+
+C-M-a			移到当前函数开头		beginning-of-defun
+C-M-e			函数结尾			end-of-defun
+C-M-h			标记函数			mark-defun
+C-M-q			缩进S表达式			indent-sexp
