@@ -9,3 +9,12 @@ typeset -u VARIABLE  # 自动将var的复制转为大写
 crontab -e  # 编辑cron表
         -l  # 列出
 
+创建伪随机数：
+RANDOM=$$   # seed
+UPPER_LIMIT=$1
+RANDOM_NUMBER=$(($RANDOM % $UPPER_LIMIT + 1))
+echo "$RANDOM_NUMBER"
+
+高亮显示特定文本
+set s/current_string/$(tput smso)new_string$(tput rmso)/g   # 两个字符串是相同的
+set s/"$STR"/$(tput smso)"$STR"$(tput rmso)/g
