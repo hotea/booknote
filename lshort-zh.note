@@ -24,6 +24,32 @@ LATEX 将忽略% 后的该行内容,换行符以及下一行前的空白字符
 
 在\documentclass和\begin{document} 之间的部分称作导言区 (preamble)
 
+编辑过程：
+vi foo.tex
+latex foo.tex
+xdvi foo.dvi &
+dvips -Pcmz foo.dvi -o foo.ps
+dvipdf foo.dvi
+
+\ducumentclass[options]{class}
+class指定文档类型，如下：
+article      排版科学期刊、演示文档、短报告、程序文档、邀请函......
+proc         一个基于 article 的会议文集类。
+minimal      非常小的文档类。只设置了页面尺寸和基本字体。主要用来查错。
+report       排版多章节长报告、短篇书籍、博士论文......
+book         排版书籍。
+slides       排版幻灯片。该文档类使用大号 sans serif 字体。也可以选用FoilTEX来得到相同的效果
+options定制文档类属性：
+10pt, 11pt, 12pt         设置文档中所使用的字体的大小。如果该项没有指定,默认使用10pt 字体。
+a4paper, letterpaper...  定义纸张的尺寸。缺省设置为letterpaper。此外,还可以使用a5paper, b5paper, executivepaper以及legalpaper。
+fleqn                    设置行间公式为左对齐,而不是居中对齐。
+leqno                    设置行间公式的编号为左对齐,而不是右对齐。
+titlepage, notitlepage   指定是否在文档标题(document title) 后另起一页。article 文档类缺省设置为不开始新页,report 和book 类则相反。
+onecolumn, twocolumn     LATEX 以单栏(one column) 或双栏(two column) 的方式来排版文档。
+twoside, oneside         指定文档为双面或单面打印格式。article 和report 类为单面(single sided) 格式,book 类缺省为双面(double sided) 格式。注意该选项只是作用于文档样式,而不会通知打印机以双面格式打印文档。
+landscape                将文档的打印输出布局设置为 landscape 模式。
+openright, openany       决定新的一章仅在奇数页开始还是在下一页开始。在文档类型为article 时该选项不起作用,因为该类中没有定义“章”(chapter)。report 类默认在下一页开始新一章而book 类的新一章总是在奇数页开始。
+
 
 
 
