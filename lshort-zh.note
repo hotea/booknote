@@ -49,6 +49,41 @@ onecolumn, twocolumn     LATEX 以单栏(one column) 或双栏(two column) 的�
 twoside, oneside         指定文档为双面或单面打印格式。article 和report 类为单面(single sided) 格式,book 类缺省为双面(double sided) 格式。注意该选项只是作用于文档样式,而不会通知打印机以双面格式打印文档。
 landscape                将文档的打印输出布局设置为 landscape 模式。
 openright, openany       决定新的一章仅在奇数页开始还是在下一页开始。在文档类型为article 时该选项不起作用,因为该类中没有定义“章”(chapter)。report 类默认在下一页开始新一章而book 类的新一章总是在奇数页开始。
+一个例子：
+\documentclass[11pt,twoside,a4paper]{article}
+这条命令会引导LATEX 使用article 格式、11 磅大小的字体来排版该文档,并得到在A4 纸上双面打印的效果
+
+
+调用宏包
+\usepackage[options]{package}
+LaTeX自带的包:(texdoc查看文档)
+doc 排版LATEX 的说明文档。
+exscale 提供了按比例伸缩的数学扩展字体。
+fontenc 指明使用哪种LATEX 字体编码(font encoding)。
+ifthen 提供如下形式的命令 ‘if . . . then do . . . otherwise do . . . .’
+latexsym 提供LATEX 符号字体。
+makeidx 提供排版索引的命令。
+syntonly 编译文档而不生成 dvi 文件(常用于查错)
+inputenc 指明使用哪种输入编码,如 ASCII, ISO Latin-1, ISO Latin-2, 437/850, IBM code pages, Apple Macintosh, Next, ANSI-Windows 或用户自定义编码。
+
+
+页面样式：
+\pagestyle{style}
+plain    在页脚正中显示页码。这是页面样式的缺省设置。
+headings 在页眉中显示章节名及页码,页脚空白
+empty    将页眉页脚都设为空白。
+\thispagestyle{style}   改变当前页面样式
+
+插入文件：
+\include{filename}      在处理插入的filename.tex 文档前,LATEX 会另起一页
+\includeonly{filename,filename,..}      只能在导言区使用。它可以让LATEX 仅读入某些\include文件
+\input{filename}        无限制的载入文本
+
+检查文档错误，不生成输出
+\usepackage{syntonly}
+\syntonly
+
+
 
 
 
