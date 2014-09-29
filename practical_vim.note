@@ -1,0 +1,109 @@
+http://pragprog.com/titles/dnvim/source_code
+http://vimgolf.com/ 
+
+commentary.vim
+https://github.com/tpope/vim-commentary
+vim -u NONE -N 不加载vimrc,-N激活'nocompatible'选项
+
+tech-1. 结识.命令
+重复上次修改.从进入插入模式的那一刻,直到返回普通模式为止,所有这些按键操作为一个修改,一次修改可以是改变文档内文本的任意操作.
+>G      增加当前行到文档末尾的缩进层级
+
+tech-2. 不要自我重复
+行尾添加内容:如分号
+$a;<Esc>        j$.j$.
+A;<Esc>         j.j.
+A;<Esc>         jVG     :'<,'>normal .
+:%normal A;
+
+复合命令        等效长命令
+C               c$
+s               cl
+S               ^c
+I               ^i
+A               $a
+o               A<CR>
+O               ko
+
+tech-3. 以退为进
+在一个字符前后个添加一个空格:比如+
+f+      s + <Esc>       ;.;.;.
+
+tech-4. 执行,重复,回退
+@:      重复Ex命令
+&       重复:substitute命令
+目的            操作            重复    回退
+做一个修改      {edit}          .       u
+
+行内下个字符    f   t           ;       ,
+行内上个字符    F   T           ;       ,
+文档下一处      /               n       N
+文档上一处      ?               n       N
+替换            s/ /            &       u
+一系列修改      qx{change}q     @x      u
+
+tech-5. 查找并手动替换
+/
+*       光标所在下个单词
+%/old/new/gc
+
+tech-6. 结识.范式
+理想模式:用一键移动,另一键执行
+
+
+tech-7. 停顿时请移开画笔
+就像画家只花一小部分时间涂色一样,程序员也只花一小部分时间编写代码.
+
+tech-8. 把撤销单元切成块
+只要控制好<Esc>键的使用,就可控制撤销的粒度.让每个可撤销块对应一次思考过程.
+换行用<Esc>o代替<CR>
+在插入模式中移动光标会重置修改状态.
+
+tech-9. 构造可重复的修改
+处于单词末尾,删除之:   daw 好于 b dw   db x
+
+tech-10. 用次数做简单的算术运算
+<C-a>,<C-x>     对数字执行加减,前缀指定整数.光标不在数字上,则正向查找数字
+set nrformats=  增减时不识别进制
+
+tech-11. 能够重复,就别用次数
+用dw......而不用d7w(删除七个),7dw(七次删除), 减少计算
+只在必要时用次数,.意义不大时,次数保留连贯的历史记录
+
+tech-12. 操作符与动作命令结合
+c       修改
+d       删除
+y       复制到寄存器
+g~      反转大小写
+gu      转换为小写
+gU      转换为大写
+=       自动缩进
+!       使用外部程序过滤{motion}所跨越的行
+gUaw    当前单词转为大写
+dap     删除整个段落
+当一个操作符命令被连续调用两次时,会作用于当前行
+gUgU    gUU
+
+可自定义操作符  :h :map-operator
+commentary.vim  增添注释及取消注释命令
+\\{motion}      切换指定行的注释状态
+\\ap            切换当前段落的注释
+\\G             注释当前行到文件尾
+\\\             注释当前行
+
+自定义动作命令  :h omap-info
+textobj-entire  整文件文本对象
+ie
+ae
+gg=G    自动缩进整个文件 =ae
+
+操作符待决模式Operator-Pending mode
+操作符和动作命令之间的短暂瞬间
+
+
+tech-13. 在插入模式中可即时更正错误
+<C-h>   <C-w>   <C-u>
+
+tech-14. 返回普通模式
+<C-[>   切换到普通模式 :h i_ctrl-[
+<C-o>   切换到插入-普通模式
