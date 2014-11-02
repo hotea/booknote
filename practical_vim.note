@@ -1,5 +1,6 @@
 http://pragprog.com/titles/dnvim/source_code
 http://vimgolf.com/ 
+http://vimcasts.org
 
 commentary.vim
 https://github.com/tpope/vim-commentary
@@ -159,4 +160,41 @@ gv      重选上次的选区
 o       切换选区的活动端
 
 tech-22. 重复执行面向行的可视命令
+使用.命令重复对高亮选区所做的修改时,此修改会重复作用于相同范围的文本
+
+tech-23. 只要可能,最好用操作符命令,而不是可视命令
+vit     高亮选中标签内部的内容
+U       将选中字符大写. :h v_U
+当一条可视模式命令被重复执行时,它会影响数量相同的文本. :h visual-repeat
+gU{motion}      等效于v_U, :h gU
+可视模式适用于一次性任务,普通模式的操作符命令适用于可重复修改
+
+tech-24. 用面向列块的可视模式编辑表格数据
+<c-v>进入列块可视模式,下移选中列,编辑,gv重选上次高亮选区,yyp复制顶行,Vr-分隔表头
+
+
+tech-25. 修改列文本
+选中多列,按c修改时,在插入模式中只显示在顶行,回到普通模式才会看到下面的修改
+
+tech-26. 在长短不一的高亮块后添加文本
+用$把选区扩大到每行结尾,A在每行后添加内容
+
+tech-27. 命令行模式
+:h ex-cmd-index
+:[range]delete [x]	删除指定范围内的行[到寄存器x中]
+:[range]yank [x]	复制指定范围的行[x]
+:[line]put [x]		在指定行后粘贴寄存器x中的内容
+:[range]copy {address}	把指定范围内的行拷贝到addr行之下
+:[range]move {address}	把指定范围内的行移动到addr行之下
+:[range]join		连接指定范围内的行
+:[range]normal {commands}	对指定范围内的每一行执行普通模式命令commands
+:[range]global/{pattern}/[cmd]	对指定范围内匹配{pattern}的所有行,在其上执行cmd
+:h vi-differences	vim和vi的不同
+
+tech-28. 在一行或多个连续行上执行命令
+
+
+
+
+
 
